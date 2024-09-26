@@ -1,6 +1,7 @@
+/* 전체 레이아웃 */
 .App {
-  font-family: "Arial", sans-serif;
-  background-color: #f4f4f9;
+  font-family: "Montserrat", sans-serif;
+  background-color: #e9ecef; /* 밝은 회색 배경 */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -8,22 +9,26 @@
   justify-content: center;
 }
 
+/* 헤더 스타일 */
 header {
   width: 100%;
   padding: 20px;
-  background-color: #ffc107;
+  background-color: #f0a500; /* 공사 현장 테마의 밝은 노란색 */
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 header h1 {
-    color: #212529;
-    margin: 0;
-    font-size: 2rem;
-    text-align: center;
-    padding: 10px 0;
+  color: #212529;
+  margin: 0;
+  font-size: 2.5rem;
+  text-align: center;
+  padding: 10px 0;
+  font-weight: bold;
+  letter-spacing: 2px; /* 글자 간격 확대 */
 }
 
+/* 네비게이션 스타일 */
 nav ul {
   list-style-type: none;
   padding: 0;
@@ -33,28 +38,59 @@ nav ul {
 }
 
 nav ul li {
-  margin: 0 15px;
+  margin: 0 20px;
 }
 
 nav ul li a {
   text-decoration: none;
   color: #343a40;
   font-weight: bold;
-  padding: 10px 20px;
+  padding: 12px 24px;
   border-radius: 5px;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* 트랜지션 효과 */
 }
 
 nav ul li a:hover {
-  background-color: #212529;
+  background-color: #343a40;
   color: #fff;
+  transform: translateY(-3px); /* 호버 시 약간 올라감 */
 }
 
-h2 {
+/* 버튼 스타일 */
+button {
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  background-color: #343a40;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background-color: #f0a500;
   color: #212529;
-  margin-bottom: 10px;
+  transform: translateY(-2px); /* 버튼 호버 시 살짝 올라감 */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* 더 깊은 그림자 */
 }
 
+/* 입력 필드 스타일 */
+input {
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #f0a500; /* 포커스 시 테두리 색 변경 */
+}
+
+/* 카드 스타일 */
 p {
   font-size: 1.2rem;
   background-color: #ffffff;
@@ -63,41 +99,77 @@ p {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 10px 0;
   color: #212529;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-button {
-  padding: 10px 20px;
-  font-size: 1rem;
-  background-color: #343a40;
-  color: #ffffff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+p:hover {
+  transform: translateY(-5px); /* 호버 시 카드가 살짝 올라감 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 호버 시 더 강한 그림자 */
 }
 
-button:hover {
-  background-color: #ffc107;
-  color: #212529;
-}
-
-input {
-  padding: 10px;
-  margin-right: 10px;
-  border: 1px solid #ced4da;
-  border-radius: 5px;
-}
-
-input:focus {
-  outline: none;
-  border-color: #ffc107;
-}
-
+/* 아이콘 스타일 */
 i {
-    margin-right: 8px;
+  margin-right: 8px;
 }
 
 button i {
-    margin-right: 5px;
-    color: #ffc107;
+  margin-right: 5px;
+  color: #f0a500;
+}
+
+/* 반응형 디자인: 모바일 */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  button {
+    width: 100%;
+    padding: 15px;
+  }
+
+  p {
+    font-size: 1rem;
+    padding: 10px;
+  }
+}
+
+/* 반응형 디자인: 태블릿과 노트북 */
+@media (min-width: 601px) and (max-width: 1024px) {
+  nav ul {
+    flex-direction: row;
+  }
+
+  nav ul li {
+    margin: 10px 5px;
+  }
+
+  p {
+    font-size: 1.1rem;
+    padding: 12px;
+  }
+}
+
+/* 애니메이션 */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+header h1 {
+  animation: fadeInDown 0.5s ease-in-out;
 }

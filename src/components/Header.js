@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTachometerAlt, faCogs } from "@fortawesome/free-solid-svg-icons";
+import { faTachometerAlt, faCogs, faHome } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -8,6 +8,11 @@ const Header = () => {
       <h1>Smart Safety Helmet Control Panel</h1>
       <nav>
         <ul>
+          <li>
+            <Link to="/">
+              <FontAwesomeIcon icon={faHome} /> Home
+            </Link>
+          </li>
           <li>
             <Link to="/dashboard">
               <FontAwesomeIcon icon={faTachometerAlt} /> Dashboard
